@@ -6070,6 +6070,7 @@ Public Sub updateChartSetting()
                         If nowSheet.Cells(j, i).Value = "TT" Then startRow = j: Exit For
                         If Not nowSheet.Cells(j, i).Value = "" Then cnt = cnt + 1
                     Next j
+                    If startRow = 0 then Exit For
                     For j = 1 To cnt
                         nowSheet.Cells(startRow + j, i + 1).Value = Round(getSPEC(nowSheet.Cells(20 + j, i + 1).Value, "TT"), 3)
                     Next j
