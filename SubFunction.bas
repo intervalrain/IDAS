@@ -207,6 +207,7 @@ Public Function getCORNER(ByVal nowPara As String)
     Set CornerSheet = Worksheets("Corner")
     Set header = CreateObject("Scripting.Dictionary")
     For i = 1 To Worksheets("Corner").UsedRange.Columns.Count
+        If CornerSheet.Cells(1, i).Value = "" Then Exit For
         header.Add CornerSheet.Cells(1, i).Value, i
     Next i
     
