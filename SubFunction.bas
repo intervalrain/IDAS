@@ -135,17 +135,24 @@ Public Function SetGrouping(mSheet As String, waferId As String, groupId As Stri
     Set nowRange = Nothing
 End Function
 
-Public Function getSiteNum(sheetName As String)
+Public Function getSiteNum(sheetName As String, Optional waferList As String)
     Dim i As Long, j As Long
     Dim nowSheet As Worksheet
     Dim siteNum As Integer
-   
+    Dim mRange As Range
+    
     Set nowSheet = Worksheets(sheetName)
-    For i = 1 To nowSheet.UsedRange.Rows.Count
-       If InStr(nowSheet.Cells(i, 1), "No.") Then Exit For
+    If waferList = "" Then
+        Set mRange = nowSheet.UsedRange
+    Else
+        Set mRange = nowSheet.Range("wafer_" & waferList)
+    End If
+    
+    For i = 1 To mRange.Rows.Count
+       If InStr(mRange.Cells(i, 1), "No.") Then Exit For
     Next i
-    For j = 1 To nowSheet.UsedRange.Columns.Count
-       If InStr(nowSheet.Cells(i, j), "<") Then siteNum = siteNum + 1
+    For j = 1 To mRange.Columns.Count
+       If InStr(mRange.Cells(i, j), "<") Then siteNum = siteNum + 1
     Next j
     getSiteNum = siteNum
 End Function
