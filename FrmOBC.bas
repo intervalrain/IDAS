@@ -439,8 +439,8 @@ Private Function genUCurSheet(mType As Boolean)
     
     If CB_Corner And IsExistSheet("Corner") And UBound(List_X.List) = 0 And UBound(List_Y.List) = 0 Then
         
-        CornerX = getCORNER(List_X.List)
-        CornerY = getCORNER(List_Y.List)
+        CornerX = getCORNER(List_X.List(0))
+        CornerY = getCORNER(List_Y.List(0))
         
     End If
     If Len(TargetY) > 1 Then TargetY = Mid(TargetY, 3)
