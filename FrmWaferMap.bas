@@ -97,7 +97,7 @@ Private Sub genMapSub(Para As String, Optional sheetName As String = "WaferMap")
     
     nowSheet.Activate
     
-    siteNum = getSiteNum(dSheet)
+    'siteNum = getSiteNum(dSheet)
     vSpec = getSPECInfo(Para)
     
     If vSpec.mUnit <> "" Then
@@ -122,10 +122,15 @@ Private Sub genMapSub(Para As String, Optional sheetName As String = "WaferMap")
             Set mapRange = nowSheet.Range(nowSheet.UsedRange.Rows.Count + 2 & ":" & nowSheet.UsedRange.Rows.Count + 15)
         End If
         
+        'siteNum = getSiteNum(dSheet)
+        siteNum = getSiteNum(dSheet, waferList(nowWafer))
+        
         For i = 1 To siteNum
             tmpStr = getValueByPara(waferList(nowWafer), "parameter", i, vSpec)
             tmpStr = getCOL(getCOL(tmpStr, "(", 2), ")", 1)
-            If tmpStr = "" Then MsgBox ("Could not derive site info."): Exit Sub
+            If tmpStr = "" Then
+                MsgBox ("Could not derive site info."): Exit Sub
+            End If
             tmpX = CInt(getCOL(tmpStr, ",", 1))
             tmpY = CInt(getCOL(tmpStr, ",", 2))
             If i = 1 Then
