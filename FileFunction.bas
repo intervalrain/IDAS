@@ -804,7 +804,7 @@ Public Sub importUEDA()
         End If
     Next i
     lotInfo(7, UBound(lotInfo, 2)) = i - 1
-    'If UBound(lotInfo, 2) > 0 Then ReDim Preserve lotInfo(7, UBound(lotInfo, 2) - 1)
+    If UBound(lotInfo, 2) > 0 Then ReDim Preserve lotInfo(7, UBound(lotInfo, 2) - 1)
     i = 1
     
     Do While (IsExistSheet("UEDA" & i))
