@@ -86,6 +86,7 @@ For data analysis with summary table and plot charts.
 
 # Version
 Version Log:   
+2022/05/08 Fix standard deviation's precision in "summaryTable".
 2022/04/18 Fix "getCorner" function and simplify setting in "Corner" Sheet.  
 2022/03/25 Fix ":" problem with ";" operator. Fix "UEDA to IDAS" function. Add "shrink" for "gen Mismatch" function.  
 2022/01/15 Optimize pinScatter and UnpinScatter function. Add **genSingleChart** manual function.  

@@ -487,13 +487,13 @@ Public Function LotSummarySub(mSheet As String, itemRange As Range)
                         .Cells(1, 1 + (0 + c) * waferNum) = Application.WorksheetFunction.Median(nowRange)
                         .Cells(1, 1 + (1 + c) * waferNum) = Application.WorksheetFunction.Average(nowRange)
                         If nowRange.Columns.Count > 1 Then
-                        .Cells(1, 1 + (2 + c) * waferNum) = Format(Application.WorksheetFunction.StDev(nowRange), "0.00")
+                        .Cells(1, 1 + (2 + c) * waferNum) = Application.WorksheetFunction.StDev(nowRange)
                         End If
                     Else
                         .Cells(1, 1 + (0 + c) * waferNum) = Application.WorksheetFunction.Median(reValue)
                         .Cells(1, 1 + (1 + c) * waferNum) = Application.WorksheetFunction.Average(reValue)
                         If nowRange.Columns.Count > 1 Then
-                        .Cells(1, 1 + (2 + c) * waferNum) = Format(Application.WorksheetFunction.StDev(reValue), "0.00")
+                        .Cells(1, 1 + (2 + c) * waferNum) = Application.WorksheetFunction.StDev(reValue)
                         End If
                     End If
                     
